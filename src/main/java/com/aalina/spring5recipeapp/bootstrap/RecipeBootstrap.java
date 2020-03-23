@@ -64,8 +64,8 @@ public class RecipeBootstrap implements ApplicationListener<ContextRefreshedEven
             throw new RuntimeException("Expected UOM Not Found");
         }
 
-        Optional<UnitOfMeasure> cupsUomOptional = unitOfMeasureRepository.findByDescription("Cups");
-        if (!cupsUomOptional.isPresent()) {
+        Optional<UnitOfMeasure> cupUomOptional = unitOfMeasureRepository.findByDescription("Cup");
+        if (!cupUomOptional.isPresent()) {
             throw new RuntimeException("Expected UOM Not Found");
         }
 
@@ -75,7 +75,7 @@ public class RecipeBootstrap implements ApplicationListener<ContextRefreshedEven
         UnitOfMeasure teaSpoonUom = teaSpoonUomOptional.get();
         UnitOfMeasure dashUom = dashUomOptional.get();
         UnitOfMeasure pintUom = pintUomOptional.get();
-        UnitOfMeasure cupsUom = cupsUomOptional.get();
+        UnitOfMeasure cupsUom = cupUomOptional.get();
 
         // Get Optionals for Categories
         Optional<Category> americanCategoryOptional = categoryRepository.findByDescription("American");
