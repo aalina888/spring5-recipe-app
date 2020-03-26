@@ -1,5 +1,7 @@
 package com.aalina.spring5recipeapp.services;
 
+import com.aalina.spring5recipeapp.converters.RecipeCommandToRecipe;
+import com.aalina.spring5recipeapp.converters.RecipeToRecipeCommand;
 import com.aalina.spring5recipeapp.domain.Recipe;
 import com.aalina.spring5recipeapp.repositories.RecipeRepository;
 import org.junit.Before;
@@ -20,15 +22,21 @@ public class RecipeServiceImplTest {
     @Mock
     RecipeRepository recipeRepository;
 
+    @Mock
+    RecipeToRecipeCommand recipeToRecipeCommand;
+
+    @Mock
+    RecipeCommandToRecipe recipeCommandToRecipe;
+
     @Before
     public void setUp() throws Exception {
         MockitoAnnotations.initMocks(this);
 
-        recipeService = new RecipeServiceImpl(recipeRepository);
+        recipeService = new RecipeServiceImpl(recipeRepository, recipeCommandToRecipe, recipeToRecipeCommand);
     }
 
     @Test
-    public void getRecipeById() {
+    public void getRecipeByIdTest() {
         Recipe recipe = new Recipe();
         recipe.setId(1L);
         Optional<Recipe> recipeOptional = Optional.of(recipe);
@@ -54,5 +62,6 @@ public class RecipeServiceImplTest {
 
         assertEquals(recipes.size(), 1);
         verify(recipeRepository, times(1)).findAll();
+        verify(recipeRepository, never()).findById(anyLong());
     }
 }
