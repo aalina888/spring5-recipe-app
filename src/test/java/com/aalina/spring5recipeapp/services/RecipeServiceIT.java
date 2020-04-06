@@ -34,7 +34,7 @@ public class RecipeServiceIT {
 
     @Transactional
     @Test
-    public void testSaveOfDescription() {
+    public void saveOfDescriptionTest() {
         // Given
         Iterable<Recipe> recipes = recipeRepository.findAll();
         Recipe testRecipe = recipes.iterator().next();

@@ -14,7 +14,7 @@ public class CategoryTest {
     }
 
     @Test
-    public void getId() {
+    public void getIdTest() {
         Long idValue = 4L;
         category.setId(idValue);
 
@@ -22,10 +22,10 @@ public class CategoryTest {
     }
 
     @Test
-    public void getDescription() {
+    public void getDescriptionTest() {
     }
 
     @Test
-    public void getRecipes() {
+    public void getRecipesTest() {
     }
 }

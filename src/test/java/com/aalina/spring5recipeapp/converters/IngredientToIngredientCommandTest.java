@@ -26,17 +26,17 @@ public class IngredientToIngredientCommandTest {
     }
 
     @Test
-    public void testNullConvert() {
+    public void nullConvertTest() {
         assertNull(converter.convert(null));
     }
 
     @Test
-    public void testEmptyObject() {
+    public void emptyObjectTest() {
         assertNotNull(converter.convert(new Ingredient()));
     }
 
     @Test
-    public void testConvertNullUOM() {
+    public void convertNullUOMTest() {
         // Given
         Ingredient ingredient = new Ingredient();
         ingredient.setId(ID_VALUE);
@@ -56,7 +56,7 @@ public class IngredientToIngredientCommandTest {
     }
 
     @Test
-    public void testConvertWithUom() {
+    public void convertWithUomTest() {
         // Given
         Ingredient ingredient = new Ingredient();
         ingredient.setId(ID_VALUE);

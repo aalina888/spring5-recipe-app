@@ -19,17 +19,17 @@ public class NotesCommandToNotesTest {
     }
 
     @Test
-    public void testNullParameter() {
+    public void nullParameterTest() {
         assertNull(converter.convert(null));
     }
 
     @Test
-    public void testEmptyObject() {
+    public void emptyObjectTest() {
         assertNotNull(converter.convert(new NotesCommand()));
     }
 
     @Test
-    public void convert() {
+    public void convertTest() {
         // Given
         NotesCommand notesCommand = new NotesCommand();
         notesCommand.setId(ID_VALUE);

@@ -33,17 +33,17 @@ public class RecipeToRecipeCommandTest {
     }
 
     @Test
-    public void testNullObject() {
+    public void nullObjectTest() {
         assertNull(converter.convert(null));
     }
 
     @Test
-    public void testEmptyObject() {
+    public void emptyObjectTest() {
         assertNotNull(converter.convert(new Recipe()));
     }
 
     @Test
-    public void convert() {
+    public void convertTest() {
         // Given
         Recipe recipe = new Recipe();
         recipe.setId(RECIPE_ID);

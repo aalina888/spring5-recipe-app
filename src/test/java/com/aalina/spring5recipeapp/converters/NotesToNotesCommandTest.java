@@ -18,7 +18,7 @@ public class NotesToNotesCommandTest {
     }
 
     @Test
-    public void convert() {
+    public void convertTest() {
         // Given
         Notes notes = new Notes();
         notes.setId(ID_VALUE);
@@ -34,12 +34,12 @@ public class NotesToNotesCommandTest {
     }
 
     @Test
-    public void testNull() {
+    public void nullTest() {
         assertNull(converter.convert(null));
     }
 
     @Test
-    public void testEmptyObject() {
+    public void emptyObjectTest() {
         assertNotNull(converter.convert(new Notes()));
     }
 }

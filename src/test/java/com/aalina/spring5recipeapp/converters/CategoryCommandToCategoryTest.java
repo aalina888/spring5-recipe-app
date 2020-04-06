@@ -18,17 +18,17 @@ public class CategoryCommandToCategoryTest {
     }
 
     @Test
-    public void testNullObject() {
+    public void nullObjectTest() {
         assertNull(converter.convert(null));
     }
 
     @Test
-    public void testEmptyObject() {
+    public void emptyObjectTest() {
         assertNotNull(converter.convert(new CategoryCommand()));
     }
 
     @Test
-    public void convert() {
+    public void convertTest() {
         // Given
         CategoryCommand categoryCommand = new CategoryCommand();
         categoryCommand.setId(ID_VALUE);

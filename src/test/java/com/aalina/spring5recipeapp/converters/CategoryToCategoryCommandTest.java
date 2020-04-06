@@ -18,17 +18,17 @@ public class CategoryToCategoryCommandTest {
     }
 
     @Test
-    public void testNullObject() {
+    public void nullObjectTest() {
         assertNull(converter.convert(null));
     }
 
     @Test
-    public void testEmptyObject() {
+    public void emptyObjectTest() {
         assertNotNull(converter.convert(new Category()));
     }
 
     @Test
-    public void convert() {
+    public void convertTest() {
         // Given
         Category category = new Category();
         category.setId(ID_VALUE);
@@ -41,6 +41,5 @@ public class CategoryToCategoryCommandTest {
         assertNotNull(categoryCommand);
         assertEquals(ID_VALUE, categoryCommand.getId());
         assertEquals(DESCRIPTION, categoryCommand.getDescription());
-
     }
 }

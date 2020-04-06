@@ -35,7 +35,7 @@ public class RecipeControllerTest {
     }
 
     @Test
-    public void testGetRecipe() throws Exception {
+    public void getRecipeTest() throws Exception {
         Recipe recipe = new Recipe();
         recipe.setId(1L);
 
@@ -48,7 +48,7 @@ public class RecipeControllerTest {
     }
 
     @Test
-    public void testGetNewRecipeForm() throws Exception {
+    public void getNewRecipeFormTest() throws Exception {
         RecipeCommand command = new RecipeCommand();
 
         mockMvc.perform(get("/recipe/new"))
@@ -58,7 +58,7 @@ public class RecipeControllerTest {
     }
 
     @Test
-    public void testPostNewRecipeForm() throws Exception {
+    public void postNewRecipeFormTest() throws Exception {
         RecipeCommand command = new RecipeCommand();
         command.setId(2L);
 
@@ -74,7 +74,7 @@ public class RecipeControllerTest {
     }
 
     @Test
-    public void testGetUpdateView() throws Exception {
+    public void getUpdateViewTest() throws Exception {
         RecipeCommand command = new RecipeCommand();
         command.setId(2L);
 
@@ -87,7 +87,7 @@ public class RecipeControllerTest {
     }
 
     @Test
-    public void testDeleteAction() throws Exception {
+    public void deleteActionTest() throws Exception {
         mockMvc.perform(get("/recipe/1/delete"))
                 .andExpect(status().is3xxRedirection())
                 .andExpect(view().name("redirect:/"));

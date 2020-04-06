@@ -19,17 +19,17 @@ public class UnitOfMeasureToUnitOfMeasureCommandTest {
     }
 
     @Test
-    public void testNullObjectConvert() {
+    public void nullObjectConvertTest() {
         assertNull(converter.convert(null));
     }
 
     @Test
-    public void testEmptyObj() {
+    public void emptyObjTest() {
         assertNotNull(converter.convert(new UnitOfMeasure()));
     }
 
     @Test
-    public void convert() {
+    public void convertTest() {
         // Given
         UnitOfMeasure uom = new UnitOfMeasure();
         uom.setId(LONG_VALUE);

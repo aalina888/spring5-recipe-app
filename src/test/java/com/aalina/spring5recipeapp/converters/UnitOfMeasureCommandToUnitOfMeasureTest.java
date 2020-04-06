@@ -20,17 +20,17 @@ public class UnitOfMeasureCommandToUnitOfMeasureTest {
     }
 
     @Test
-    public void testNullParameter() {
+    public void nullParameterTest() {
         assertNull(converter.convert(null));
     }
 
     @Test
-    public void testEmptyObject() {
+    public void emptyObjectTest() {
         assertNotNull(converter.convert(new UnitOfMeasureCommand()));
     }
 
     @Test
-    public void convert() {
+    public void convertTest() {
         // Given
         UnitOfMeasureCommand command = new UnitOfMeasureCommand();
         command.setId(LONG_VALUE);
