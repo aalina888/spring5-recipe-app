@@ -1,6 +1,9 @@
 package com.aalina.spring5recipeapp.controllers;
 
 import com.aalina.spring5recipeapp.commands.IngredientCommand;
+import com.aalina.spring5recipeapp.commands.RecipeCommand;
+import com.aalina.spring5recipeapp.commands.UnitOfMeasureCommand;
+import com.aalina.spring5recipeapp.domain.Recipe;
 import com.aalina.spring5recipeapp.services.IngredientService;
 import com.aalina.spring5recipeapp.services.RecipeService;
 import com.aalina.spring5recipeapp.services.UnitOfMeasureService;
@@ -41,6 +44,27 @@ public class IngredientController {
         model.addAttribute("ingredient", ingredientService.findByRecipeIdAndIngredientId(Long.valueOf(recipeId), Long.valueOf(id)));
 
         return "recipe/ingredient/show";
+    }
+
+    @GetMapping
+    @RequestMapping("recipe/{recipeId}/ingredient/new")
+    public String newRecipe(@PathVariable String recipeId, Model model) {
+        // Making sure we have a good is value
+        RecipeCommand recipeCommand = recipeService.findCommandById(Long.valueOf(recipeId));
+
+        // TODO raise exception if null
+
+        // Need to return back parent id for hidden form property
+        IngredientCommand ingredientCommand = new IngredientCommand();
+        ingredientCommand.setRecipeId(Long.valueOf(recipeId));
+        model.addAttribute("ingredient", ingredientCommand);
+
+        // Init uom
+        ingredientCommand.setUom(new UnitOfMeasureCommand());
+
+        model.addAttribute("uomList", unitOfMeasureService.listAllUoms());
+
+        return "recipe/ingredient/ingredientform";
     }
 
     @GetMapping
