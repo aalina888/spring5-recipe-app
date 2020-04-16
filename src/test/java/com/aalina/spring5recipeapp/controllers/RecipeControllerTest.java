@@ -2,6 +2,7 @@ package com.aalina.spring5recipeapp.controllers;
 
 import com.aalina.spring5recipeapp.commands.RecipeCommand;
 import com.aalina.spring5recipeapp.domain.Recipe;
+import com.aalina.spring5recipeapp.exceptions.NotFoundException;
 import com.aalina.spring5recipeapp.services.RecipeService;
 import org.junit.Before;
 import org.junit.Test;
@@ -45,6 +46,17 @@ public class RecipeControllerTest {
                 .andExpect(status().isOk())
                 .andExpect(view().name("recipe/show"))
                 .andExpect(model().attributeExists("recipe"));
+    }
+
+    @Test
+    public void getRecipeNotFoundTest() throws Exception {
+        Recipe recipe = new Recipe();
+        recipe.setId(1L);
+
+        when(recipeService.findById(anyLong())).thenThrow(NotFoundException.class);
+
+        mockMvc.perform(get("/recipe/1/show"))
+                .andExpect(status().isNotFound());
     }
 
     @Test
